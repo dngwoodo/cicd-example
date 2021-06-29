@@ -26,5 +26,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - name: Docker build
-      - run: |
+        run: |
           docker build -t codesoom-cicd .
