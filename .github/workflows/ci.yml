@@ -38,7 +38,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           envs: GITHUB_SHA
           script: |
-            docker pull dngwoodo/codesoom-cicd:${hash}
-            docker tag dngwoodo/codesoom-cicd:${hash} codesoom-cicd
+            docker pull dngwoodo/codesoom-cicd:${GITHUB_SHA:7}
+            docker tag dngwoodo/codesoom-cicd:${GITHUB_SHA:7} codesoom-cicd
             docker stop server
             docker run --rm -d -p 3000:3000 --name server codesoom-cicd
